@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">mvvm-kotlin</string>
+    <string name="btn_click">点击</string>
+</resources>
