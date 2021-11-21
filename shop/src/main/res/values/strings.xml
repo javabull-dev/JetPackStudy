@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">shop</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="main_fragment_text">主页</string>
+    <string name="mark_fragment_text">喜欢</string>
+    <string name="me_fragment_text">我</string>
+    <string name="welcome_shop_text">欢迎购物</string>
+    <string name="register_text">注册</string>
+    <string name="login_text">登录</string>
+    <string name="welcome_register">欢迎注册</string>
+    <string name="text_email">邮箱</string>
+    <string name="text_account">账号</string>
+    <string name="text_password">密码</string>
+    <string name="welcome_login_text">欢迎登录</string>
+    <string name="menu_item_main">主页</string>
+    <string name="menu_item_mark">喜欢</string>
+    <string name="menu_item_me">我</string>
+</resources>

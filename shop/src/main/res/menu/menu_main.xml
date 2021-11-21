@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/infoFragmentItem"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/menu_item_main" />
+
+    <item
+        android:id="@+id/marketFragmentItem"
+        android:icon="@drawable/ic_market"
+        android:title="@string/menu_item_mark" />
+
+    <item
+        android:id="@+id/meFragmentItem"
+        android:icon="@drawable/ic_me"
+        android:title="@string/menu_item_me" />
+</menu>

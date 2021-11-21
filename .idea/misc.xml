@@ -18,6 +18,18 @@
         <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/navigation/src/main/res/layout/fragment_home.xml" value="0.21557971014492755" />
         <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/navigation/src/main/res/menu/menu_setting.xml" value="0.25364583333333335" />
         <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/paging/src/main/res/layout/activity_main.xml" value="0.21557971014492755" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/drawable-v24/ic_account.xml" value="0.26979166666666665" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/drawable-v24/ic_me.xml" value="0.26979166666666665" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/drawable-v24/ic_pwd.xml" value="0.26979166666666665" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/activity_login.xml" value="0.16757246376811594" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/fragment_login.xml" value="0.16" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/fragment_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/fragment_mark.xml" value="0.16666666666666666" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/fragment_me.xml" value="0.16666666666666666" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/layout/fragment_welcome.xml" value="0.2" />
+        <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/shop/src/main/res/menu/menu_main.xml" value="0.25364583333333335" />
         <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/sumflower/src/main/res/layout/activity_main.xml" value="0.21557971014492755" />
         <entry key="..\:/CodeSource/AndroidCode/JetPackStudy/workmanager/src/main/res/layout/activity_main.xml" value="0.21557971014492755" />
       </map>

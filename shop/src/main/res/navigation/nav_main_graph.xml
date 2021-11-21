@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="cn.ljpc.shop.ui.fragment.main.MeFragment"
+        android:label="fragment_me"
+        tools:layout="@layout/fragment_me" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="cn.ljpc.shop.ui.fragment.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/markFragment"
+        android:name="cn.ljpc.shop.ui.fragment.main.MarkFragment"
+        android:label="fragment_mark"
+        tools:layout="@layout/fragment_mark" />
+</navigation>
