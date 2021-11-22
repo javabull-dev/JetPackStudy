@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/infoFragmentItem"
+        android:id="@+id/mainFragment"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/menu_item_main" />
 
     <item
-        android:id="@+id/marketFragmentItem"
+        android:id="@+id/markFragment"
         android:icon="@drawable/ic_market"
         android:title="@string/menu_item_mark" />
 
     <item
-        android:id="@+id/meFragmentItem"
+        android:id="@+id/meFragment"
         android:icon="@drawable/ic_me"
         android:title="@string/menu_item_me" />
 </menu>

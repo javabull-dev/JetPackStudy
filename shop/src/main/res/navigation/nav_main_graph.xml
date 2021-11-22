@@ -6,11 +6,6 @@
     app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/meFragment"
-        android:name="cn.ljpc.shop.ui.fragment.main.MeFragment"
-        android:label="fragment_me"
-        tools:layout="@layout/fragment_me" />
-    <fragment
         android:id="@+id/mainFragment"
         android:name="cn.ljpc.shop.ui.fragment.main.MainFragment"
         android:label="fragment_main"
@@ -20,4 +15,10 @@
         android:name="cn.ljpc.shop.ui.fragment.main.MarkFragment"
         android:label="fragment_mark"
         tools:layout="@layout/fragment_mark" />
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="cn.ljpc.shop.ui.fragment.main.MeFragment"
+        android:label="fragment_me"
+        tools:layout="@layout/fragment_me" />
+
 </navigation>
