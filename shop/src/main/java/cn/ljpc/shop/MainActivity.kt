@@ -3,19 +3,14 @@ package cn.ljpc.shop
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import cn.ljpc.shop.navigator.INavigator
-import cn.ljpc.shop.navigator.Screens
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import kotlin.system.exitProcess
 
 @AndroidEntryPoint
@@ -25,9 +20,6 @@ class MainActivity : AppCompatActivity() {
 
     //底部导航栏
     lateinit var bottomNavigationView: BottomNavigationView
-
-//    @Inject
-//    lateinit var navigator: INavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,17 +40,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
-//        bottomNavigationView.getOrCreateBadge(R.id.mainFragment)//小红点，徽章
-//        bottomNavigationView.setOnNavigationItemReselectedListener {
-//            val screen = when (it.itemId) {
-//                R.id.infoFragmentItem -> Screens.MAIN_SCREEN
-//                R.id.marketFragmentItem -> Screens.MARK_SCREEN
-//                R.id.meFragmentItem -> Screens.ME_SCREEN
-//                else -> Screens.MAIN_SCREEN
-//            }
-//            bottomNavigationView.getOrCreateBadge(it.itemId)
-//            navigator.navigateTo(screen)
-//        }
     }
 
     /**
