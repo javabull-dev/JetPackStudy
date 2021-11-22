@@ -8,9 +8,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user")
 data class User(
     //声明字段
-    @ColumnInfo(name = "user_account") val account: String,
-    @ColumnInfo(name = "user_password") val pwd: String,
-    @ColumnInfo(name = "user_name") val name: String
+    @ColumnInfo(name = "user_name") val name: String,//用户的名称
+    @ColumnInfo(name = "user_email") val account: String, //用户的邮箱
+    @ColumnInfo(name = "user_password") val pwd: String//用户的密码
 ) {
     //声明主键
     @PrimaryKey(autoGenerate = true)

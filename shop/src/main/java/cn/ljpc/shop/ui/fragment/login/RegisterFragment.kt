@@ -9,12 +9,14 @@ import androidx.databinding.DataBindingUtil
 import cn.ljpc.shop.R
 import cn.ljpc.shop.databinding.FragmentRegisterBinding
 import cn.ljpc.shop.viewmodel.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    @Inject
+    lateinit var registerModel: RegisterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,8 +26,8 @@ class RegisterFragment : Fragment() {
         val binding: FragmentRegisterBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false)
         binding.activity = activity
-        binding.model = RegisterViewModel("", "", "", requireContext())
-        binding.lifecycleOwner = viewLifecycleOwner
+        binding.model = registerModel
+        registerModel.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 }

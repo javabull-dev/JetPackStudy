@@ -1,20 +1,23 @@
 package cn.ljpc.shop.ui.fragment.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import cn.ljpc.shop.R
 import cn.ljpc.shop.databinding.FragmentLoginBinding
 import cn.ljpc.shop.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    private val loginViewModel: LoginViewModel by viewModels()
+    @Inject
+    lateinit var loginViewModel: LoginViewModel
 
     private lateinit var binding: FragmentLoginBinding
 
@@ -43,7 +46,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginViewModel._pwd.observe(viewLifecycleOwner, Observer {
-            binding.isEnable = it.isEmpty() && loginViewModel._name.value!!.isEmpty()
+            binding.isEnable = !(it.isEmpty() && loginViewModel._name.value!!.isEmpty())
         })
     }
 }

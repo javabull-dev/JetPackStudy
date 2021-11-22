@@ -7,8 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import cn.ljpc.shop.MainActivity
 import cn.ljpc.shop.db.UserRepository
+import dagger.hilt.android.qualifiers.ActivityContext
+import javax.inject.Inject
 
-class LoginViewModel(private val context: Context, private val repository: UserRepository) :
+class LoginViewModel @Inject constructor(
+    @ActivityContext private val context: Context,
+    private val repository: UserRepository
+) :
     ViewModel() {
 
     val _name = MutableLiveData("")
@@ -34,11 +39,8 @@ class LoginViewModel(private val context: Context, private val repository: UserR
      */
     fun login() {
         val pwd = _pwd.value!! //非空
-        val account = _name.value!!//非空
-//        viewModelScope.launch {
-//
-//        }
-        repository.login(account, pwd).observe(lifecycleOwner, {
+        val name = _name.value!!//非空
+        repository.login(name, pwd).observe(lifecycleOwner, {
             if (it != null) {
                 Toast.makeText(context, "登录成功", Toast.LENGTH_SHORT).show();
                 MainActivity.toMainActivity(context)

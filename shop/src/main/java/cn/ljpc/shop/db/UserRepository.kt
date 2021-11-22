@@ -3,19 +3,27 @@ package cn.ljpc.shop.db
 import androidx.lifecycle.LiveData
 import cn.ljpc.shop.db.dao.UserDao
 import cn.ljpc.shop.db.data.User
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserRepository private constructor(private val userDao: UserDao) {
+@Singleton
+class UserRepository @Inject constructor(val userDao: UserDao) {
 
     /**
      * 用户登录
      */
-    fun login(account: String, pwd: String) = userDao.login(account, pwd)
+    fun login(name: String, pwd: String) = userDao.login(name, pwd)
 
     /**
      * 用户注册
      */
-    fun register(email: String, account: String, pwd: String) =
-        userDao.insertUser(User(account, pwd, email))
+    fun register(email: String, name: String, pwd: String) =
+        userDao.insertUser(User(name, email, pwd))
+
+    /**
+     * 用户信息是否已经存在
+     */
+    fun exist(email: String, name: String) = userDao.exist(email, name)
 
     /**
      * 获取所有的用户
@@ -27,6 +35,9 @@ class UserRepository private constructor(private val userDao: UserDao) {
      */
     fun findUserById(id: Long): LiveData<User> = userDao.findUserById(id)
 
+    /**
+     * 使用@Inject @Singleton 后，不需要写单例了
+     */
 //    companion object {
 //
 //        private var instance: UserRepository? = null

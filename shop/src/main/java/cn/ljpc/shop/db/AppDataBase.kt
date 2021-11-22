@@ -1,10 +1,7 @@
 package cn.ljpc.shop.db
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import cn.ljpc.shop.db.dao.UserDao
 import cn.ljpc.shop.db.data.User
 
@@ -19,29 +16,32 @@ abstract class AppDataBase : RoomDatabase() {
      */
     abstract fun userDao(): UserDao
 
-    companion object {
-
-        private var instance: AppDataBase? = null
-
-        fun getInstance(context: Context): AppDataBase {
-            return instance ?: synchronized(this) {
-                instance ?: buildDataBase(context).also {
-                    instance = it
-                }
-            }
-        }
-
-        //创建数据库
-        private fun buildDataBase(context: Context): AppDataBase {
-            return Room
-                .databaseBuilder(context, AppDataBase::class.java, "jetpack-shop")
-                .addCallback(object : RoomDatabase.Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        super.onCreate(db)
-                        //可以做一些其他的事情
-                    }
-                })
-                .build()
-        }
-    }
+    /**
+     * 不需要写了
+     */
+//    companion object {
+//
+//        private var instance: AppDataBase? = null
+//
+//        fun getInstance(context: Context): AppDataBase {
+//            return instance ?: synchronized(this) {
+//                instance ?: buildDataBase(context).also {
+//                    instance = it
+//                }
+//            }
+//        }
+//
+//        //创建数据库
+//        private fun buildDataBase(context: Context): AppDataBase {
+//            return Room
+//                .databaseBuilder(context, AppDataBase::class.java, "jetpack-shop")
+//                .addCallback(object : RoomDatabase.Callback() {
+//                    override fun onCreate(db: SupportSQLiteDatabase) {
+//                        super.onCreate(db)
+//                        //可以做一些其他的事情
+//                    }
+//                })
+//                .build()
+//        }
+//    }
 }
