@@ -12,6 +12,10 @@
         <variable
             name="activity"
             type="androidx.fragment.app.FragmentActivity" />
+
+        <variable
+            name="isEnable"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -98,7 +102,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:enabled="@{(model._name.isEmpty()||model._pwd.isEmpty()) ? false : true}"
+            android:enabled="@{isEnable}"
             android:onClick="@{()->model.login()}"
             android:text="@string/login_text"
             app:layout_constraintBottom_toBottomOf="parent"

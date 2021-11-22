@@ -1,41 +1,50 @@
 package cn.ljpc.shop.viewmodel
 
 import android.content.Context
-import android.content.Intent
 import android.widget.Toast
-import androidx.databinding.ObservableField
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import cn.ljpc.shop.MainActivity
-import cn.ljpc.shop.data.Constants
+import cn.ljpc.shop.db.UserRepository
 
-class LoginViewModel(name: String, pwd: String, context: Context) {
+class LoginViewModel(private val context: Context, private val repository: UserRepository) :
+    ViewModel() {
 
-    val _name = ObservableField(name)
-    val _pwd = ObservableField(pwd)
-    var _context = context
+    val _name = MutableLiveData("")
+    val _pwd = MutableLiveData("")
+    lateinit var lifecycleOwner: LifecycleOwner
 
     /**
      * 用户名发生改变时回调
      */
     fun onNameChange(s: CharSequence) {
-        _name.set(s.toString())
+        _name.value = s.toString()
     }
 
     /**
      * 密码发生改变时回调
      */
     fun onPwdChange(s: CharSequence, start: Int, before: Int, count: Int) {
-        _pwd.set(s.toString())
+        _pwd.value = s.toString()
     }
 
     /**
      * 登录，用户名和密码，验证
      */
     fun login() {
-        if (_name.get().equals(Constants.USER_NAME) && _pwd.get().equals(Constants.PASSWORD)) {
-            Toast.makeText(_context, "登录成功", Toast.LENGTH_SHORT).show();
-            _context.startActivity(Intent(_context, MainActivity::class.java))
-        } else {
-            Toast.makeText(_context, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-        }
+        val pwd = _pwd.value!! //非空
+        val account = _name.value!!//非空
+//        viewModelScope.launch {
+//
+//        }
+        repository.login(account, pwd).observe(lifecycleOwner, {
+            if (it != null) {
+                Toast.makeText(context, "登录成功", Toast.LENGTH_SHORT).show();
+                MainActivity.toMainActivity(context)
+            } else {
+                Toast.makeText(context, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+            }
+        })
     }
 }
