@@ -1,4 +1,4 @@
-package cn.ljpc.shop.db
+package cn.ljpc.shop.db.repository
 
 import cn.ljpc.shop.db.dao.GoodsDao
 import javax.inject.Inject

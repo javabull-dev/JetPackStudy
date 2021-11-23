@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import cn.ljpc.shop.db.UserRepository
+import cn.ljpc.shop.db.repository.UserRepository
 import cn.ljpc.shop.ui.activity.MainActivity
 import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject

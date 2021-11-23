@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cn.ljpc.shop.databinding.RecycleItemGoodsBinding
 import cn.ljpc.shop.db.data.Goods
@@ -13,7 +14,7 @@ import cn.ljpc.shop.db.data.Goods
  * GoodsAdapter 配合databinding使用
  */
 class GoodsAdapter constructor(val context: Context) :
-    PagedListAdapter<Goods, GoodsAdapter.ViewHolder>(GoodsDiffCallback()) {
+    PagingDataAdapter<Goods, GoodsAdapter.ViewHolder>(GoodsDiffCallback()) {
 
     class ViewHolder(private val binding: RecycleItemGoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {

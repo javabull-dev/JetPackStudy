@@ -1,4 +1,4 @@
-package cn.ljpc.shop.db
+package cn.ljpc.shop.db.repository
 
 import androidx.lifecycle.LiveData
 import cn.ljpc.shop.db.dao.UserDao
