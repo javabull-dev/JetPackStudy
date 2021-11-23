@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import cn.ljpc.shop.R
 import cn.ljpc.shop.databinding.FragmentMainBinding
 import cn.ljpc.shop.ui.adapter.GoodsAdapter
@@ -20,22 +19,29 @@ class MainFragment : Fragment() {
     @Inject
     lateinit var viewModel: GoodsViewModel
 
+    private lateinit var goodsAdapter: GoodsAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        goodsAdapter = GoodsAdapter(requireContext())
         val binding: FragmentMainBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
-        val goodsAdapter = GoodsAdapter(requireContext())
-        binding.recycle.adapter = goodsAdapter
+        binding.apply {
+            recycle.adapter = goodsAdapter
+        }
+        onUISubscribe()
+        return binding.root
+    }
 
+    private fun onUISubscribe() {
         //观察数据
-        viewModel.goods.observe(viewLifecycleOwner, Observer {
+        viewModel.goods.observe(viewLifecycleOwner, {
             if (it != null) {
                 //更新页面
                 goodsAdapter.submitList(it)
             }
         })
-        return binding.root
     }
 }

@@ -11,6 +11,7 @@ import cn.ljpc.shop.db.UserRepository
 import dagger.hilt.android.qualifiers.ActivityContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RegisterViewModel @Inject constructor(@ActivityContext private var context: Context) :
@@ -26,6 +27,9 @@ class RegisterViewModel @Inject constructor(@ActivityContext private var context
     @Inject
     lateinit var userRepository: UserRepository
 
+    /**
+     * 注册相关的逻辑
+     */
     fun register() {
         val name = _name.value!!
         val pwd = _pwd.value!!
@@ -33,7 +37,6 @@ class RegisterViewModel @Inject constructor(@ActivityContext private var context
         if (name.isEmpty() || pwd.isEmpty() || email.isEmpty()) {
             Toast.makeText(context, "所有信息均为必填项", Toast.LENGTH_SHORT).show()
         } else {
-            //todo bug: 在注册成功的情况下，会出现“用户已存在”的toast
             userRepository.exist(email, name).observe(lifecycleOwner, Observer {
                 if (it > 0) {
                     Toast.makeText(context, "用户已存在", Toast.LENGTH_SHORT).show()
@@ -41,16 +44,17 @@ class RegisterViewModel @Inject constructor(@ActivityContext private var context
                     //创建协程，执行任务
                     viewModelScope.launch(Dispatchers.IO) {
                         val count = userRepository.register(email, name, pwd)
-                        Handler(Looper.getMainLooper()).post(Runnable {
+                        //线程切换
+                        withContext(Dispatchers.Main) {
                             showResult(count > 0)
-                        })
+                        }
                     }
                 }
             })
         }
     }
 
-    //切换到Ui线程上执行
+    //需要在Ui线程上执行的函数
     @MainThread
     fun showResult(flag: Boolean) {
         if (flag) {
