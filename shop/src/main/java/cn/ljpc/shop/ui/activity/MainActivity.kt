@@ -1,4 +1,4 @@
-package cn.ljpc.shop
+package cn.ljpc.shop.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cn.ljpc.shop.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.system.exitProcess

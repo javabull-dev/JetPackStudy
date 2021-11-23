@@ -36,17 +36,8 @@ class UserRepository @Inject constructor(val userDao: UserDao) {
     fun findUserById(id: Long): LiveData<User> = userDao.findUserById(id)
 
     /**
-     * 使用@Inject @Singleton 后，不需要写单例了
+     * 分页查询
      */
-//    companion object {
-//
-//        private var instance: UserRepository? = null
-//
-//        fun getInstance(userDao: UserDao): UserRepository =
-//            instance ?: synchronized(this) {
-//                instance ?: UserRepository(userDao).also {
-//                    instance = it
-//                }
-//            }
-//    }
+    fun getPagesUser(startIndex: Long, endIndex: Long): List<User> =
+        userDao.findUsersByIndexRange(startIndex, endIndex)
 }

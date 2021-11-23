@@ -30,4 +30,7 @@ interface UserDao {
 
     @Delete
     fun deleteUser(user: User)
+
+    @Query("select * from user where id between :startIndex and :endIndex order by id asc ")
+    fun findUsersByIndexRange(startIndex: Long, endIndex: Long): List<User>
 }

@@ -6,7 +6,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.MainThread
 import androidx.lifecycle.*
-import cn.ljpc.shop.MainActivity
+import cn.ljpc.shop.ui.activity.MainActivity
 import cn.ljpc.shop.db.UserRepository
 import dagger.hilt.android.qualifiers.ActivityContext
 import kotlinx.coroutines.Dispatchers

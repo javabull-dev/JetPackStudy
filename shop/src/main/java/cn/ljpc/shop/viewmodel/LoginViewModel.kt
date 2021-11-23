@@ -5,13 +5,13 @@ import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import cn.ljpc.shop.MainActivity
 import cn.ljpc.shop.db.UserRepository
+import cn.ljpc.shop.ui.activity.MainActivity
 import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
-    @ActivityContext private val context: Context,
+    @ActivityContext private val context: Context,//存在内存泄露问题
     private val repository: UserRepository
 ) :
     ViewModel() {

@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import cn.ljpc.shop.db.AppDataBase
+import cn.ljpc.shop.db.dao.GoodsDao
 import cn.ljpc.shop.db.dao.UserDao
 import dagger.Module
 import dagger.Provides
@@ -22,6 +23,7 @@ object PersistenceModule {
     fun provideDatabase(@ApplicationContext context: Context): AppDataBase {
         return Room
             .databaseBuilder(context, AppDataBase::class.java, "jetpack-shop.db")
+            .createFromAsset("database/jetpack-shop.db")
             .addCallback(object : RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
@@ -35,5 +37,10 @@ object PersistenceModule {
     @Provides
     fun provideUserDao(dataBase: AppDataBase): UserDao {
         return dataBase.userDao()
+    }
+
+    @Provides
+    fun provideGoodsDao(dataBase: AppDataBase): GoodsDao {
+        return dataBase.goodsDao()
     }
 }
