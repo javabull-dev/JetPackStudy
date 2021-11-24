@@ -86,6 +86,7 @@ class MainFragment : Fragment() {
         })
 
         job = viewModel.viewModelScope.launch(Dispatchers.IO) {
+            //collect消费
             viewModel.goods.collect {
                 goodsAdapter.submitData(it)
             }
