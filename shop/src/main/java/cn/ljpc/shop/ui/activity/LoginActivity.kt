@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import cn.ljpc.shop.R
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * 登录的Activity
+ */
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 

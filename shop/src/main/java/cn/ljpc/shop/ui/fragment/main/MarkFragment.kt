@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import cn.ljpc.shop.R
 
 
+/**
+ * 喜欢页面，显示喜欢的商品的信息
+ */
 class MarkFragment : Fragment() {
 
     override fun onCreateView(

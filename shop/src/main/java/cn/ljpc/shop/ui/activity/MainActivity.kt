@@ -14,6 +14,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.system.exitProcess
 
+/**
+ * 主页面
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 

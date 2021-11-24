@@ -1,9 +1,23 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+
     repositories {
-        google()
-        mavenCentral()
+        /*google()
+        jcenter()
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }*/
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url'https://maven.aliyun.com/repository/public/' }
+        maven { url'https://maven.aliyun.com/repository/google/' }
+        maven { url'https://maven.aliyun.com/repository/jcenter/' }
+        maven { url'https://maven.aliyun.com/repository/central/' }
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.3"
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0'
