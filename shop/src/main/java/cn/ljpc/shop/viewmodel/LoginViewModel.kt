@@ -13,8 +13,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     @ActivityContext private val context: Context,//存在内存泄露问题
     private val repository: UserRepository
-) :
-    ViewModel() {
+) : ViewModel() {
 
     val _name = MutableLiveData("")
     val _pwd = MutableLiveData("")
